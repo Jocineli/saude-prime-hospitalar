@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Consultas - Saúde Prime</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">Saúde Prime</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="pacientes.html">Pacientes</a></li>
+                    <li><a href="agendamento.html">Agendamentos</a></li>
+                    <li><a href="profissionais.html">Profissionais</a></li>
+                    <li><a href="telemedicina.html">Telemedicina</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="#" id="logoutBtn">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="pacientes.html">Cadastrar Paciente</a></li>
+                    <li><a href="#" class="active" class="active">Histórico de Consultas</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+            <h2>Histórico de Consultas do Paciente</h2>
+
+            <div class="search-section">
+                <div class="form-group">
+                    <label for="patientNameSearch">Nome do Paciente:</label>
+                    <input type="text" id="patientNameSearch" placeholder="Digite o nome do paciente">
+                </div>
+                <button type="button" class="btn primary" id="searchHistoryBtn">Buscar Histórico</button>
+            </div>
+
+            <hr>
+
+            <div id="historyResults" style="display: block;"> <h3>Histórico de Consultas para <span id="patientNameDisplay">Maria Clara Souza</span></h3>
+                <div id="consultationDetails">
+                    <div class="consultation-card">
+                        <h4>Consulta em: 2025-09-15  as 08h30</h4>
+                        <p><strong>Médico:</strong> Dr. Carlos Silva (Cardiologista)</p>
+                        <p><strong>Especialidade:</strong> Cardiologia</p>
+                        <p><strong>Status:</strong> Agendado</p>
+                        <hr>
+                    </div>
+                    <div class="consultation-card">
+                        <h4>Consulta em: 2025-05-15</h4>
+                        <p><strong>Médico:</strong> Dr. Carlos Silva (Cardiologista)</p>
+                        <p><strong>Especialidade:</strong> Cardiologia</p>
+                        <p><strong>Diagnóstico:</strong> Hipertensão Essencial</p>
+                        <p><strong>Tratamento:</strong> Medicação X, Acompanhamento trimestral.</p>
+                        <hr>
+                    </div>
+                    <div class="consultation-card">
+                        <h4>Consulta em: 2025-01-15</h4>
+                        <p><strong>Médico:</strong> Dr. Carlos Silva (Cardiologista)</p>
+                        <p><strong>Especialidade:</strong> Cardiologia</p>
+                        <p><strong>Diagnóstico:</strong> Hipertensão Essencial</p>
+                        <p><strong>Tratamento:</strong> Medicação X, Acompanhamento trimestral.</p>
+                        <hr>
+                    </div>
+                    <div class="consultation-card">
+                        <h4>Consulta em: 2024-09-15</h4>
+                        <p><strong>Médico:</strong> Dr. Carlos Silva (Cardiologista)</p>
+                        <p><strong>Especialidade:</strong> Cardiologia</p>
+                        <p><strong>Diagnóstico:</strong> Hipertensão Essencial</p>
+                        <p><strong>Tratamento:</strong> Medicação X, Acompanhamento trimestral.</p>
+                        <hr>
+                    </div>
+                       </div>
+                    <div class="consultation-card">
+                        <h4>Exames em: 2024-07-05 as 09h</h4>
+                        <p><strong>Exame:</strong> Eletrocardiogrma</p>
+                        <p><strong>Status:</strong> Realizado</p>
+                        <hr>
+                    </div>
+                    <div class="consultation-card">
+                        <h4>Consulta em: 2024-06-01</h4>
+                        <p><strong>Médico:</strong> Dr. Carlos Silva (Cardiologista)</p>
+                        <p><strong>Especialidade:</strong> Cardiologia</p>
+                        <p><strong>Diagnóstico:</strong> Dor Torácica Atípica</p>
+                        <p><strong>Tratamento:</strong> Exames de imagem, ajuste de medicação.</p>
+                        <hr>
+                    </div>
+                    </div>
+                <button type="button" class="btn success" id="generatePdfBtn">Gerar PDF</button>
+            </div>
+
+            <p id="noResultsMessage" style="display: none; color: var(--danger-color); margin-top: 20px;">
+                Paciente não encontrado ou sem histórico de consultas.
+            </p>
+
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Sistema de Gestão Hospitalar. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/historico_consultas.js"></script>
+    <script src="js/delete_logic.js"></script> 
+</body>
+</html>

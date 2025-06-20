@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamentos de Consultas - Saúde Prime</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">Saúde Prime</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="pacientes.html">Pacientes</a></li>
+                    <li><a href="agendamento.html">Agendamentos</a></li>
+                    <li><a href="profissionais.html">Profissionais</a></li>
+                    <li><a href="telemedicina.html">Telemedicina</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="#" id="logoutBtn">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="agendamento.html">Agendar</a></li>
+                    <li><a href="#" class="active" class="active">Agendamentos</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+            <h2>Agendamentos</h2>
+
+            <div class="search-section">
+                <button type="button" class="btn primary" id="searchHistoryBtn">Buscar</button>
+            </div>
+
+            <hr>
+
+            <div id="historyResults" style="display: block;"> <h3>Agendamentos <span id="patientNameDisplay">Maria Clara Souza</span></h3>
+                <div id="consultationDetails">
+                    <div class="consultation-card">
+                        <h4>Consulta em: 2025-08-15  as 08h30</h4>
+                        <p><strong>Médico:</strong> Dr. Carlos Silva (Cardiologista)</p>
+                        <p><strong>Especialidade:</strong> Cardiologia</p>
+                        <p><strong>Status:</strong> Agendado</p>
+                        <hr>
+                    </div>
+                    <div class="consultation-card">
+                        <h4>Exames em: 2025-07-05 as 07h</h4>
+                        <p><strong>Exame laboratórial:</strong> Hemograma completo</p>
+                        <p><strong>Status:</strong> Agendado</p>
+                        <hr>
+                    </div>
+                    <div id="historyResults" style="display: block;"> <h3>Agendamentos <span id="patientNameDisplay">Marcos Souza</span></h3>
+                <div id="consultationDetails">
+                    <div class="consultation-card">
+                        <h4>Consulta em: 2025-08-15  as 08h</h4>
+                        <p><strong>Médico:</strong> Dr. Carlos Silva (Cardiologista)</p>
+                        <p><strong>Especialidade:</strong> Cardiologia</p>
+                        <p><strong>Status:</strong> Agendado</p>
+                        <hr>
+                    </div>
+                    <div id="historyResults" style="display: block;"> <h3>Agendamentos <span id="patientNameDisplay">Maria Jose</span></h3>
+                <div id="consultationDetails">
+                    <div class="consultation-card">
+                        <h4>Teleconsulta em: 2025-07-15  as 09h30</h4>
+                        <p><strong>Médico:</strong> Dr. Matheus Silva (Generalista)</p>
+                        <p><strong>Especialidade:</strong> Generalista</p>
+                        <p><strong>Status:</strong> Agendado</p>
+                        <hr>
+                    </div>
+                    <div id="historyResults" style="display: block;"> <h3>Agendamentos <span id="patientNameDisplay">Jorge Luis</span></h3>
+                <div id="consultationDetails">
+                    <div class="consultation-card">
+                        <h4>Exames em: 2025-07-09 as 10h</h4>
+                        <p><strong>Exame:</strong> Eletrocardiograma</p>
+                        <p><strong>Status:</strong> Agendado</p>
+                        <hr>
+                    </div>
+                    </div>
+                <button type="button" class="btn success" id="generatePdfBtn">Gerar PDF</button>
+            </div>
+
+            <p id="noResultsMessage" style="display: none; color: var(--danger-color); margin-top: 20px;">
+                Paciente não encontrado ou sem histórico de consultas.
+            </p>
+
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Sistema de Gestão Hospitalar. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/historico_consultas.js"></script>
+    <script src="js/delete_logic.js"></script> 
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Perfil - Clínica Saúde+</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Estilos específicos para esta tela de gerenciamento de perfil */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ocupa 100% da altura da tela */
+            margin: 0;
+            background-color: #05447f; /* Fundo azul escuro solicitado */
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        .profile-manager-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 700px; /* Largura máxima do quadro */
+            width: 90%; /* Ajusta para telas menores */
+        }
+
+        .profile-manager-container h2 {
+            color: #0056b3; /* Um tom de azul para o título */
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Uma coluna por padrão */
+            gap: 30px; /* Espaço entre os botões */
+        }
+
+        /* Para telas maiores, organize em duas colunas */
+        @media (min-width: 600px) {
+            .button-grid {
+                grid-template-columns: 1fr 1fr; /* Duas colunas */
+            }
+        }
+
+        .btn-profile {
+            padding: 15px 35px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: white;
+            background-color: #0056b3; /* Azul padrão para os botões */
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none; /* Remover sublinhado do link, se for <a> */
+            display: block; /* Garante que o botão ocupe o espaço na grade */
+        }
+
+        .btn-profile:hover {
+            background-color: #0056b3; /* Azul mais escuro no hover */
+            transform: translateY(-2px); /* Pequeno efeito ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-manager-container">
+        <h2>Perfil</h2>
+        <div class="button-grid">
+            <a href="login.html" class="btn-profile">Paciente</a>
+            
+            <a href="login.html" class="btn-profile">Administrador</a>
+            
+            <a href="login.html" class="btn-profile">Profissional de Saúde</a>
+
+            <a href="index.html" class="btn-profile">Sair</a>
+        </div>
+    </div>
+
+    <script>
+        // Opcional: Se você quiser garantir que o JavaScript do DOM esteja carregado
+        // antes de qualquer outra coisa (embora para links diretos não seja estritamente necessário)
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Tela de Gerenciar Perfil carregada.');
+            // Se houver alguma lógica JS futura para esta tela, ela iria aqui.
+        });
+    </script>
+</body>
+</html>

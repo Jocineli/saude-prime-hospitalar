@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telemedicina - Sistema Hospitalar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        /* Estilos adicionais ou ajustes para a mensagem, se necessário */
+        #mensagem-teleconsulta-status {
+            background-color: #e0f7fa; /* Um azul bem claro para o fundo da mensagem */
+            border: 1px solid #007bff; /* Borda azul */
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">Saúde Prime</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="pacientes.html">Pacientes</a></li>
+                    <li><a href="agendamento.html">Agendamentos</a></li>
+                    <li><a href="profissionais.html">Profissionais</a></li>
+                    <li><a href="telemedicina.html" class="active">Telemedicina</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="#" id="logoutBtn">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="telemedicina.html" class="active">Iniciar Teleconsulta</a></li>
+                    <li><a href="agendamento.html">Agendar Teleconsulta</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+            <h2>Telemedicina</h2>
+
+            <section class="card">
+                <div class="card-header">Iniciar Nova Teleconsulta</div>
+                <div class="card-body">
+                    <p>Para iniciar uma teleconsulta, selecione o paciente e o profissional envolvidos.</p>
+                    
+                    <form id="teleconsultaForm"> 
+                        <div class="form-group">
+                            <label for="usuarioTeleconsulta">Paciente:</label>
+                            <select id="usuarioTeleconsulta" name="usuarioTeleconsulta" required>
+                                <option value="">Selecione um paciente</option>
+                                <option value="Maria.Clara.Souza">Maria Clara Souza</option>
+                                <option value="João.Pedro.Almeida">João Pedro Almeida</option>
+                                <option value="Fernanda.Lima">Fernanda Lima</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="medicoTeleconsulta">Médico/Profissional:</label>
+                            <select id="medicoTeleconsulta" name="medicoTeleconsulta" required>
+                                <option value="">Selecione um profissional</option>
+                                <option value="Dr.Matheus.Silva">Dr. Matheus Silva</option>
+                                <option value="Dr.Jose.Silva">Dr. Jose Silva</option>
+                                <option value="Dr.Maria.Santos">Dr. Maria Santos</option>
+                                <option value="Dr.Pedro.Souza">Dr. Pedro Souza</option>
+                                <option value="Dr.Flavia.Santos">Dr. Flavia Santos</option>
+                                <option value="Dr.Maria.Souza">Dr. Maria Souza</option>
+                                <option value="Dr.João.da.Silva">Dr. João da Silva</option>
+                                <option value="Dr.Carlos.Silva">Dr. Carlos Silva</option>
+                            </select>
+                        </div>
+                        <button type="button" id="iniciarVideochamadaBtn" class="btn primary">Iniciar Videochamada</button>
+                    </form>
+                    
+                    <p id="mensagem-teleconsulta-status" style="display: none; color: #007bff; margin-top: 20px; font-weight: bold;">
+                        Conectando... 📞 Iniciando teleconsulta!
+                    </p>
+                    
+                    <p class="small-text" style="margin-top: 20px; color: #666;">
+                        **Nota:** Nesta simulação, o botão "Iniciar Videochamada" limpa as seleções e exibe uma mensagem de status. Em um sistema real, ele integraria com uma plataforma de videochamada segura e iniciaria a sessão.
+                    </p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Saúde Prime. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const iniciarVideochamadaBtn = document.getElementById('iniciarVideochamadaBtn');
+            const selectUsuarioTeleconsulta = document.getElementById('usuarioTeleconsulta');
+            const selectMedicoTeleconsulta = document.getElementById('medicoTeleconsulta');
+            const mensagemTeleconsultaStatus = document.getElementById('mensagem-teleconsulta-status');
+            const teleconsultaForm = document.getElementById('teleconsultaForm'); // Referência ao formulário
+
+            if (iniciarVideochamadaBtn) {
+                iniciarVideochamadaBtn.addEventListener('click', function() {
+                    // Validar se paciente e profissional foram selecionados
+                    if (selectUsuarioTeleconsulta.value === "" || selectMedicoTeleconsulta.value === "") {
+                        alert("Por favor, selecione um paciente e um profissional para iniciar a videochamada.");
+                        return; // Para a execução da função se a validação falhar
+                    }
+
+                    // 1. Exibe a mensagem de status
+                    mensagemTeleconsultaStatus.style.display = 'block';
+
+                    // Opcional: Pegar os nomes selecionados para uma mensagem mais específica
+                    const pacienteSelecionado = selectUsuarioTeleconsulta.options[selectUsuarioTeleconsulta.selectedIndex].text;
+                    const medicoSelecionado = selectMedicoTeleconsulta.options[selectMedicoTeleconsulta.selectedIndex].text;
+
+                    console.log(`Iniciando teleconsulta entre ${pacienteSelecionado} e ${medicoSelecionado}...`);
+
+                    // 2. Simula o tempo de conexão e depois limpa os campos
+                    setTimeout(() => {
+                        // Limpa as caixas de seleção
+                        selectUsuarioTeleconsulta.value = ""; 
+                        selectMedicoTeleconsulta.value = "";  
+
+                        mensagemTeleconsultaStatus.style.display = 'none'; // Esconde a mensagem de status
+                        alert(`Teleconsulta iniciada com sucesso entre ${pacienteSelecionado} e ${medicoSelecionado}!`); // Feedback final
+                        // Em um sistema real, aqui você redirecionaria para a tela da videochamada
+                        // Ex: window.location.href = `link-da-sua-plataforma-de-videochamada?paciente=${pacienteSelecionado}&medico=${medicoSelecionado}`;
+                    }, 3000); // Mensagem visível por 3 segundos para simular conexão
+                });
+            }
+
+            // Lógica para o botão "Sair" (logoutBtn) - replicado aqui para conveniência
+            const logoutBtn = document.getElementById('logoutBtn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function(event) {
+                    event.preventDefault(); 
+                    const confirmLogout = confirm("Tem certeza que deseja sair?");
+                    if (confirmLogout) {
+                        alert("Sessão encerrada com sucesso!");
+                        window.location.href = 'login.html'; // Redirecione para sua tela de login
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
+            <hr>
+
+            <h2>Histórico de Teleconsultas</h2>
+            <div id="teleconsultasList">
+                <p>Nenhuma teleconsulta registrada ainda.</p>
+            </div>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Sistema de Gestão Hospitalar. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/telemedicina.js"></script> </body>
+</html>

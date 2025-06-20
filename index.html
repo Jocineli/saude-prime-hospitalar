@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segurança e Privacidade - Saúde Prime</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Estilos específicos para esta tela */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ocupa 100% da altura da tela */
+            margin: 0;
+            background-color: #0056b3; /* Fundo azul conforme solicitado (o mesmo do cabeçalho) */
+            font-family: Arial, sans-serif;
+            color: #333; /* Cor do texto padrão */
+        }
+
+        .privacy-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 600px; /* Largura máxima do quadro */
+            width: 90%; /* Ajusta para telas menores */
+        }
+
+        .privacy-container h2 {
+            color: #0056b3; /* Cor do título */
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .privacy-container p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #555;
+        }
+
+        /* O botão "Continuar" usará as classes 'btn' e 'primary' do seu style.css */
+        .btn.continue-btn {
+            padding: 12px 30px;
+            font-size: 1.2em;
+            background-color: #007bff; /* Azul para o botão */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn.continue-btn:hover {
+            background-color: #0056b3; /* Azul mais escuro no hover */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="privacy-container">
+        <h2>Segurança e Privacidade dos Dados</h2>
+        <p>O sistema **Saúde Prime** utiliza criptografia e segue todos os protocolos de segurança exigidos pela **Lei Geral de Proteção de Dados (LGPD)**, garantindo o sigilo e a integridade das informações.</p>
+        <p>Ao clicar em "Continuar", você declara estar ciente e de acordo com a nossa **Política de Privacidade**.</p>
+         <a href="gerenciar_perfil.html" class="btn primary">Continuar</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const continueBtn = document.getElementById('continueBtn');
+            if (continueBtn) {
+                continueBtn.addEventListener('click', function() {
+                    // Redireciona para a tela de login (assumindo que o login.html existe)
+                    window.location.href = 'login.html'; 
+                });
+            } else {
+                console.error('Erro: Botão "Continuar" não encontrado.');
+            }
+        });
+    </script>
+</body>
+</html>

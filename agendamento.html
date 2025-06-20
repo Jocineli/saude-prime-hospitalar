@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agendamento - Sistema Hospitalar</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <header class="main-header">
+    <div class="container">
+      <a href="index.html" class="logo">Saúde Prime</a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="pacientes.html">Pacientes</a></li>
+          <li><a href="agendamento.html">Agendamentos</a></li>
+          <li><a href="profissionais.html">Profissionais</a></li>
+          <li><a href="telemedicina.html">Telemedicina</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="#" id="logoutBtn">Sair</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="main-content container">
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li><a href="#" class="active">Novo Agendamento</a></li>
+          <li><a href="Agendamentos_pendente.html">Consultas Pendentes</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="content-area">
+      <h2>Agendamento de Consulta</h2>
+
+      <!-- ✅ Adicionei o onsubmit aqui -->
+      <form id="appointmentForm" onsubmit="return agendarConsulta(event)">
+        <div class="form-group">
+          <label for="usuario">Paciente:</label>
+          <select id="usuario" name="usuario" required>
+            <option value="">Selecione um paciente</option>
+            <option value="Maria.Clara.Souza">Maria Clara Souza</option>
+            <option value="João.Pedro.Almeida">João Pedro Almeida</option>
+            <option value="Fernanda.Lima">Fernanda Lima</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="medicoAgendamento">Médico/Profissional:</label>
+          <select id="medicoAgendamento" name="medicoAgendamento" required>
+            <option value="">Selecione um profissional</option>
+            <option value="Dr.Matheus.Silva">Dr. Matheus Silva</option>
+            <option value="Dr.Jose.Silva">Dr. Jose Silva</option>
+            <option value="Dr.Maria.Santos">Dr. Maria Santos</option>
+            <option value="Dr.Pedro.Souza">Dr. Pedro Souza</option>
+            <option value="Dr.Flavia.Santos">Dr. Flavia Santos</option>
+            <option value="Dr.Maria.Souza">Dr. Maria Souza</option>
+            <option value="Dr.João.da.Silva">Dr. João da Silva</option>
+            <option value="Dr.Carlos.Silva">Dr. Carlos Silva</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="dataConsulta">Data:</label>
+          <input type="date" id="dataConsulta" name="dataConsulta" required />
+        </div>
+
+        <div class="form-group">
+          <label for="horaConsulta">Hora:</label>
+          <input type="time" id="horaConsulta" name="horaConsulta" required />
+        </div>
+
+        <div class="form-group">
+          <label for="tipoConsulta">Tipo de Consulta:</label>
+          <select id="tipoConsulta" name="tipoConsulta" required>
+            <option value="">Selecione o tipo</option>
+            <option value="presencial">Presencial</option>
+            <option value="telemedicina">Telemedicina</option>
+            <option value="Exame">Exames</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn primary">Agendar</button>
+      </form>
+
+      <p id="mensagem-sucesso" style="display: none; color: rgb(3, 75, 120); margin-top: 20px;">
+        ✅ Consulta agendada com sucesso!
+      </p>
+    </main>
+  </div>
+<footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Sistema de Gestão Hospitalar. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+  <script>
+    function agendarConsulta(event) {
+      event.preventDefault();
+
+      const mensagem = document.getElementById('mensagem-sucesso');
+      mensagem.style.display = 'block';
+
+      document.getElementById('appointmentForm').reset();
+
+      setTimeout(() => {
+        mensagem.style.display = 'none';
+      }, 4000);
+
+      return false;
+    }
+  </script>
+
+</body>
+</html>
+

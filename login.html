@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Saúde Prime</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <style>
+        /* Estilos adicionais para a página de login */
+        body.login-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #3b9ee5a1; /* Um fundo claro para a tela de login */
+            font-family: Arial, sans-serif;
+            flex-direction: column; /* Para centralizar verticalmente tudo */
+        }
+
+        .login-container {
+            background-color: #ffffff(240, 243, 244, 0.559);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            display: flex; /* Para alinhar os elementos internos */
+            flex-direction: column;
+            gap: 15px; /* Espaçamento entre os elementos principais */
+        }
+
+        .hospital-title {
+            color: #555;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            font-weight: normal;
+        }
+        
+        .login-container h1 { /* Para "Saúde Prime" */
+            color: #0056b3;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        /* Estilo para o botão/link "Entrar" */
+        .btn-login-link { /* Nova classe para o link, para não conflitar com btn primary */
+            display: block; /* Para ocupar toda a largura como um botão */
+            width: 100%;
+            padding: 12px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none; /* Remover sublinhado do link */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px; /* Adiciona espaço acima do botão */
+        }
+
+        .btn-login-link:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos para os novos links "Esqueceu a senha?" e "Registre-se" */
+        .login-links {
+            margin-top: 10px; /* Ajuste para o espaço abaixo da senha */
+            font-size: 0.95em;
+            text-align: center; /* Centraliza os links */
+        }
+
+        .login-links p {
+            margin-bottom: 8px; /* Espaço entre os parágrafos de link */
+        }
+
+        .login-links a {
+            color: #0056b3;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .login-links a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+
+        .tagline {
+            font-size: 0.85em;
+            color: #888;
+            margin-top: 30px; /* Espaço acima da tagline */
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <p class="hospital-title">Sistema de Gestão Hospitalar</p>
+        
+        <h1>Saúde Prime</h1> 
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <div class="login-links">
+                <p><a href="esqueceu_senha.html">Esqueceu a senha?</a></p>
+                <p>Não tem cadastro? <a href="registro.html">Registre-se</a></p>
+            </div>
+            
+            <a href="agendamento.html" class="btn-login-link">Entrar</a>
+            
+            </form>
+        
+        <p class="tagline">Tecnologia a serviço da saúde - versão 2.025.06</p>
+    </div>
+    <script src="js/auth.js"></script> 
+</body>
+</html>

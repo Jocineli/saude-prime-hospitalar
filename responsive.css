@@ -1,0 +1,27 @@
+/* css/responsive.css */
+
+/* Estilos padrão para telas pequenas (mobile first) */
+body {
+    font-size: 16px;
+}
+
+.container {
+    padding: 15px;
+}
+
+/* Para telas maiores que 768px (tablets e desktops) */
+@media (min-width: 768px) {
+    .container {
+        padding: 30px;
+    }
+    .sidebar {
+        width: 200px; /* Exemplo */
+    }
+}
+
+/* Para telas maiores que 1024px (desktops) */
+@media (min-width: 1024px) {
+    body {
+        font-size: 18px;
+    }
+}

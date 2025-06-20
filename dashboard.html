@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Saúde Prime</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css"> 
+    <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        /* Estilos específicos para o Dashboard */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsivo, cards de no mínimo 280px */
+            gap: 25px; /* Espaçamento entre os cards */
+            margin-top: 20px;
+        }
+
+        .dashboard-card {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .dashboard-card h3 {
+            color: #0056b3; /* Cor do título do card */
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .dashboard-card p {
+            color: #555;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-card .btn {
+            display: inline-block; /* Para que o link pareça um botão */
+            width: auto;
+            padding: 10px 20px;
+            font-size: 1em;
+        }
+
+        /* Estilo para ícones nos cards (se for usar) */
+        .dashboard-card .icon {
+            font-size: 3em;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        /* Layout com sidebar e conteúdo principal (herdado do agendamento.html) */
+        .main-content {
+            display: flex;
+            gap: 20px; /* Espaço entre sidebar e content-area */
+        }
+
+        .sidebar {
+            flex: 0 0 220px; /* Largura fixa para a sidebar */
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar nav ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar nav ul li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #333;
+            border-radius: 5px;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .sidebar nav ul li a:hover,
+        .sidebar nav ul li a.active {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .content-area {
+            flex-grow: 1; /* Ocupa o restante do espaço */
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">Saúde Prime</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="pacientes.html">Pacientes</a></li>
+                    <li><a href="agendamento.html">Agendamentos</a></li>
+                    <li><a href="profissionais.html">Profissionais</a></li>
+                    <li><a href="telemedicina.html">Telemedicina</a></li>
+                     <li><a href="fluxo_caixa.html" class="active">Financeiro</a></li> 
+                    <li><a href="#" id="logoutBtn">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html" class="active">Visão Geral</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+            <h2>Bem-vindo ao Dashboard!</h2>
+            <p>Visão geral rápida das informações e acessos do sistema.</p>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="icon">📅</div> <h3>Próximas Consultas</h3>
+                    <p>Total de <strong>5</strong> Agendamentos.</p>
+                    <p>Consultas Agendadas: <span id="agendamentosHoje">2</span></p>
+                    <p>Teleconsultas: <span id="teleconsultasHoje">1</span></p>
+                    <p>Exames Agendados: <span id="examesHoje">2</span></p>
+                    <a href="Agendamentos_pendente.html" class="btn primary">Ver Detalhes</a>
+                </div>
+                <div class="dashboard-card">
+                    <div class="icon">🛏️</div> <h3>Leitos</h3>
+                    <p>Total de <strong>20</strong> Leitos.</p>
+                    <p>Leitos Ocupados: <span id="agendamentosHoje">3</span></p>
+                    <p>Leitos Disponiveis: <span id="teleconsultasHoje">17</span></p>
+                    <a href="" class="btn primary">Ver Detalhes</a>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="icon">👥</div> 
+                    <h3>Pacientes Ativos</h3>
+                    <p>Atualmente, <strong>50</strong> pacientes registrados.</p>
+                    <a href="pacientes.html" class="btn primary">Gerenciar Pacientes</a>
+                </div>
+                <div class="dashboard-card">
+                    <div class="icon">👨‍⚕️</div> 
+                    <h3>Profissionais Ativos</h3>
+                    <p>Atualmente, <strong>14</strong> Profissionais registrados.</p>
+                    <a href="Lista_profissionais.html" class="btn primary">Gerenciar Profissionais</a>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="icon">📄</div>
+                    <h3>Histórico Clínico</h3>
+                    <p>Acesse rapidamente os prontuários dos pacientes.</p>
+                    <a href="historico_clinico.html" class="btn primary">Buscar Histórico</a>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="icon">➕</div>
+                    <h3>Novo Agendamento</h3>
+                    <p>Agende uma nova consulta para seus pacientes.</p>
+                    <a href="agendamento.html" class="btn primary">Agendar Agora</a>
+                </div>
+                <div class="dashboard-card">
+                    <div class="icon">📈💰</div> <h3>Relatórios Financeiros</h3>
+                    <p>Receita Total: <strong>R$ R$ 524.400,00</strong></p>
+                    <p>Despesas Operacionais: <strong>R$ 135.500,50</strong></p>
+                    <p>Lucro Líquido: <strong>R$ 388.899,50</strong></p>
+                    <a href="fluxo_caixa.html" class="btn primary">Ver Detalhes</a>
+                </div>
+                </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Saúde Prime. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lógica para o botão "Sair" (logoutBtn)
+            const logoutBtn = document.getElementById('logoutBtn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function(event) {
+                    event.preventDefault(); // Impede o comportamento padrão do link
+                    const confirmLogout = confirm("Tem certeza que deseja sair?");
+                    if (confirmLogout) {
+                        // Simula o logout e redireciona para a tela de login ou inicial
+                        alert("Sessão encerrada com sucesso!");
+                        window.location.href = 'login.html'; // Redirecione para sua tela de login
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

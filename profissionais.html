@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profissionais - Sistema Hospitalar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">Saúde Prime</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="pacientes.html">Pacientes</a></li>
+                    <li><a href="agendamento.html">Agendamentos</a></li>
+                    <li><a href="profissionais.html">Profissionais</a></li>
+                    <li><a href="telemedicina.html">Telemedicina</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="#" id="logoutBtn">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Cadastrar Profissional</a></li>
+                    <li><a href="Lista_profissionais.html">Listar Profissionais</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+            <h2>Cadastro de Profissional de Saúde</h2>
+            <form id="professionalForm">
+                <div class="form-group">
+                    <label for="nomeProfissional">Nome Completo:</label>
+                    <input type="text" id="nomeProfissional" name="nomeProfissional" required>
+                </div>
+                <div class="form-group">
+                    <label for="cpfProfissional">CPF:</label>
+                    <input type="text" id="cpfProfissional" name="cpfProfissional" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" placeholder="000.000.000-00" required>
+                </div>
+                <div class="form-group">
+                    <label for="conselhoProfissional">Conselho Profissional (CRM/COREN/etc.):</label>
+                    <input type="text" id="conselhoProfissional" name="conselhoProfissional" placeholder="Ex: CRM/SP 123456" required>
+                </div>
+                <div class="form-group">
+                    <label for="especialidade">Especialidade:</label>
+                    <input type="text" id="especialidade" name="especialidade" placeholder="Ex: Cardiologia, Enfermagem" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefoneProfissional">Telefone:</label>
+                    <input type="tel" id="telefoneProfissional" name="telefoneProfissional" placeholder="(DD) 9XXXX-XXXX" required>
+                </div>
+                <div class="form-group">
+                    <label for="emailProfissional">E-mail:</label>
+                    <input type="email" id="emailProfissional" name="emailProfissional" required>
+                </div>
+                <button type="submit" class="btn primary">Cadastrar Profissional</button>
+            </form>
+
+            <hr>
+
+            <h2>Profissionais Cadastrados</h2>
+            <div id="professionalList">
+         </div>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Sistema de Gestão Hospitalar. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/profissional.js"></script> </body>
+</html>

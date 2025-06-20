@@ -1,0 +1,151 @@
+/* Formulários */
+/* Ajuste no form-group para usar flexbox */
+.form-group {
+    margin-bottom: 15px;
+    display: flex; /* Transforma o contêiner em um flex container */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    gap: 10px; /* Adiciona um espaço entre o label e o input */
+}
+
+/* Ajuste nos labels para que não ocupem a largura toda */
+login-container.form-group label {
+    color: #0056b3; /* Cor dos rótulos - Branco */
+    /* display: block; -- REMOVA OU COMENTE ESTA LINHA */
+    margin-bottom: 0; /* Remove a margem inferior que antes empurrava o input */
+    font-weight: 600;
+    min-width: 80px; /* Garante uma largura mínima para o label, alinhando os inputs */
+    text-align: right; /* Alinha o texto do label à direita */
+}
+
+/* Garante que os inputs preencham o restante do espaço no form-group */
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"],
+.form-group input[type="tel"] { 
+    flex-grow: 1; /* Faz com que o input ocupe todo o espaço restante */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: auto; /* Garante que o input não tenha largura fixa */
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="date"],
+.form-group input[type="time"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn.primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.btn.secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn.secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+.btn.danger {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.btn.danger:hover {
+    background-color: #bd2130;
+    transform: translateY(-2px);
+}
+
+/* Cards */
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.card-body p {
+    margin-bottom: 8px;
+}
+
+/* Tabelas */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.data-table th, .data-table td {
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    text-align: left;
+}
+
+.data-table th {
+    background-color: var(--light-color);
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.data-table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Linha Divisória */
+hr {
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin: 30px 0;
+}

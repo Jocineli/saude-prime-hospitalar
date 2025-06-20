@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redefinir Senha - Saúde Prime</title>
+    <link rel="stylesheet" href="css/style.css"> <link rel="stylesheet" href="css/components.css"> <style>
+        /* Estilos específicos para a tela de redefinição de senha */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .reset-password-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 450px;
+            width: 90%;
+        }
+        .reset-password-container h2 {
+            color: #05447f; /* Seu novo tom de azul */
+            margin-bottom: 25px;
+            font-size: 2em;
+        }
+        .reset-password-container p {
+            margin-bottom: 25px;
+            color: #555;
+            line-height: 1.5;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        .form-group input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: #05447f; /* Seu novo tom de azul */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+        .btn-submit:hover {
+            background-color: #032a4f; /* Tom mais escuro para o hover */
+        }
+        .back-to-login {
+            margin-top: 30px;
+            font-size: 0.95em;
+        }
+        .back-to-login a {
+            color: #05447f; /* Seu novo tom de azul */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .back-to-login a:hover {
+            text-decoration: underline;
+            color: #032a4f; /* Tom mais escuro para o hover */
+        }
+        #resetMessage {
+            display: none; /* Escondido por padrão */
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #e6ffe6; /* Verde claro para sucesso */
+            border: 1px solid #28a745; /* Borda verde */
+            color: #28a745;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="reset-password-container">
+        <h2>Redefinir Senha</h2>
+        <p>
+            Informe o e-mail ou o CPF associado à sua conta para que possamos enviar as instruções
+            de redefinição de senha.
+        </p>
+        
+        <form id="resetPasswordForm">
+            <div class="form-group">
+                <label for="emailOrCpf">E-mail ou CPF:</label>
+                <input type="email" id="emailOrCpf" name="emailOrCpf" placeholder="seu.email@exemplo.com ou 000.000.000-00" required>
+            </div>
+            <button type="submit" class="btn-submit">Enviar Instruções</button>
+        </form>
+
+        <p id="resetMessage"></p> <p class="back-to-login">
+            <a href="login.html">Voltar para o Login</a>
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const resetPasswordForm = document.getElementById('resetPasswordForm');
+            const emailOrCpfInput = document.getElementById('emailOrCpf');
+            const resetMessage = document.getElementById('resetMessage');
+
+            if (resetPasswordForm) {
+                resetPasswordForm.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Impede o envio padrão do formulário
+
+                    const identifier = emailOrCpfInput.value.trim();
+
+                    if (identifier === "") {
+                        resetMessage.textContent = "Por favor, digite seu e-mail ou CPF.";
+                        resetMessage.style.display = 'block';
+                        resetMessage.style.backgroundColor = '#ffe6e6'; // Vermelho claro para erro
+                        resetMessage.style.borderColor = '#dc3545';     // Borda vermelha
+                        resetMessage.style.color = '#dc3545';
+                        return;
+                    }
+
+                    // Simulação: Em um sistema real, aqui você enviaria o e-mail/CPF para o servidor
+                    // para que ele processasse a solicitação e enviasse um e-mail de redefinição.
+                    
+                    resetMessage.textContent = `As instruções de redefinição de senha foram enviadas para ${identifier}. Verifique sua caixa de entrada (e spam)!`;
+                    resetMessage.style.display = 'block';
+                    resetMessage.style.backgroundColor = '#e6ffe6'; // Verde claro para sucesso
+                    resetMessage.style.borderColor = '#28a745';     // Borda verde
+                    resetMessage.style.color = '#28a745';
+
+                    // Limpa o campo após o envio (opcional)
+                    emailOrCpfInput.value = '';
+
+                    // Opcional: Esconder a mensagem após alguns segundos
+                    setTimeout(() => {
+                        resetMessage.style.display = 'none';
+                    }, 8000); // Mensagem visível por 8 segundos
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Paciente - Sistema Hospitalar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">Saúde Prime</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="pacientes.html">Pacientes</a></li>
+                    <li><a href="agendamento.html">Agendamentos</a></li>
+                    <li><a href="profissionais.html">Profissionais</a></li>
+                    <li><a href="telemedicina.html">Telemedicina</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="#" id="logoutBtn">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="pacientes.html">Cadastrar Paciente</a></li>
+                    <li><a href="pacientes.html">Listar Pacientes</a></li>
+                    <li><a href="#">Histórico Clínico</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+            <h2>Editar Paciente <span id="patientIdDisplay"></span></h2>
+            <form id="editPatientForm">
+                <div class="form-group">
+                    <label for="editNome">Nome Completo:</label>
+                    <input type="text" id="editNome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="editDataNascimento">Data de Nascimento:</label>
+                    <input type="date" id="editDataNascimento" name="dataNascimento" required>
+                </div>
+                <div class="form-group">
+                    <label for="editCpf">CPF:</label>
+                    <input type="text" id="editCpf" name="cpf" pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" placeholder="000.000.000-00" required>
+                </div>
+                <div class="form-group">
+                    <label for="editEndereco">Endereço:</label>
+                    <input type="text" id="editEndereco" name="endereco" required>
+                </div>
+                <div class="form-group">
+                    <label for="editTelefone">Telefone:</label>
+                    <input type="tel" id="editTelefone" name="telefone" placeholder="(DD) 9XXXX-XXXX" required>
+                </div>
+                <button type="submit" class="btn primary">Atualizar Cadastro</button>
+            </form>
+        </main>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Sistema de Gestão Hospitalar. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/edit_patient.js"></script> 
+</body>
+</html>
